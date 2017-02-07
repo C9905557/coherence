@@ -1,5 +1,6 @@
 var timeoutMinutes = 15;
 var clockObj = null;
+var noSleep = new NoSleep();
 
 function startCk() {
     setBell(timeoutMinutes);
@@ -10,9 +11,11 @@ function startCk() {
 };
 
 function setBell( timeout ) {
+    noSleep.enable();
     setTimeout(function(){
         var audio = new Audio('http://soundbible.com//mp3/Zen Buddhist Temple Bell-SoundBible.com-331362457.mp3');
         audio.play();
+        noSleep.disable();
      }, timeoutMinutes*60*1000 + 10*1000 +1);
     <!-- http://soundbible.com//mp3/Bleep-SoundBible.com-1927126940.mp3 -->
     <!-- <embed src="specPlayer.swf" flashvars="song=/mp3/Zen Buddhist Temple Bell-SoundBible.com-331362457.mp3" quality="high" bgcolor="#FFFFFF" name="specPlayer" allowscriptaccess="sameDomain" allowfullscreen="true" type="application/x-shockwave-flash" pluginspage="http://www.adobe.com/go/getflashplayer" width="185" height="85" align="middle"> -->
