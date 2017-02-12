@@ -10,6 +10,11 @@ div {
   width:401px; margin:0 auto;
 }
 
+p {
+  color: white;
+  font-family: sans-serif;
+}
+
 #canvas {
   background-color:#333
 }
