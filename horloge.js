@@ -4,6 +4,8 @@ var gongObj = null;
 var noSleepObj = new NoSleep();
 
 function start() {
+    document.getElementById('buttonStart').disabled = true;
+    document.getElementById('buttonStop').disabled = false;
     var tm = document.getElementById('timeoutMinutes');
     timeoutMinutes = tm.value;
     tm.readOnly = true;
@@ -14,6 +16,8 @@ function start() {
 };
 
 function stop() {
+  document.getElementById('buttonStart').disabled = false;
+  document.getElementById('buttonStop').disabled = true;
   var tm = document.getElementById('timeoutMinutes');
   tm.readOnly = false;
   gongObj.stopGong();
@@ -27,7 +31,7 @@ function Gong( timeout ) {
     this.setGong = function () {
         noSleepObj.enable();
         timerId = setTimeout(function(){
-                var audio = new Audio('https://soundbible.com//mp3/Zen%20Buddhist%20Temple%20Bell-SoundBible.com-331362457.mp3');
+                var audio = new Audio('Zen%20Buddhist%20Temple%20Bell-SoundBible.com-331362457.mp3');
                 audio.play();
                 noSleepObj.disable();
              }, timeoutMinutes*60*1000 + 10*1000 +1);
